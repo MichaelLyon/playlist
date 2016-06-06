@@ -1,0 +1,88 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+header{
+  background-color: #9B9B8D;
+  height: 8vh;
+  width: 100vw;
+  border-bottom: 2px solid black;
+  position: relative;;
+}
+footer{
+  background-color: #9B9B8D;
+  position: relative;
+  border-top: 2px solid black;
+  height: 8vh;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+section{
+
+}
+.container{
+  min-height: 100%;
+}
+.leftBodyDiv{
+  width:50%;
+  height: 100vh;
+  float: left;
+  background-color: #EEEEEE;
+}
+
+.trackButton{
+  position: absolute;
+  min-height: 6vh;
+  min-width: 15vw;
+  left:17%;
+  top:60%;
+  background-color: #353527;
+  border: 2px 0px black;
+  border-radius: 5px;
+  font-size: 24px;
+  color: white;
+}
+.leftBodyTitle{
+  color: #2C0053;
+  position: relative;
+  left: 40%;
+  top:40%;
+  font-family: AvenirNextLTPro-Regular.otf;
+}
+
+.rightBodyDiv{
+  display: inline-block;
+  width: 50%;
+  height: 100vh;
+}
+.background_img{
+  display: inline-block;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../resources/track.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.19;
+}
+.pictureTop{
+  position: absolute;
+  top:10%;
+  left:68%;
+  height: 200px;
+  width: 200px;
+}
+.pictureMiddle{
+  position: absolute;
+  top:45%;
+  left:68%;
+  height: 200px;
+  width: 200px;
+}
+.pictureBottom{
+  position: absolute;
+  top:80%;
+  left:68%;
+  height: 200px;
+  width: 200px;
+}
