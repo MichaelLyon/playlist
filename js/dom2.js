@@ -2,10 +2,13 @@ var pictureDivToAppend = $('.picture_container')[0];
 var buttonToClickActionTEMP = $('.actionButtons')[0];
 var boxToAppendTo = $('.actualBox')[0];
 var imagePrefab = $('.topBarImages');
+var clearButton = $('.actionButtons')[0];
+var submitButton = $('.actionButtons')[1];
 var httpRequest = new XMLHttpRequest();
 var imageHolder = [];
 var globalCoverArtArrayHolder;
 var globalArtistArrayHolder;
+var selectedTracksStorage = [];
 window.onLoad= pageLoad();
 
 function pageLoad(){
@@ -20,8 +23,16 @@ function pageLoad(){
             for (var i = 0; i < imageHolder.length; i++) {
               if(this.id === imageHolder[i][0].id){
                 updateBoxDiv(globalArtistArrayHolder[i]);
+                storeSelectedTracks(globalCoverArtArrayHolder[i]);
               }
             }
+          })
+          $(clearButton).click(function(){
+            $(boxToAppendTo).empty('');
+          })
+          $(submitButton).click(function(){
+            $(boxToAppendTo).empty('');
+            console.log('Submitting to Server');
           })
         if(jsonNewObj.Response ==="False"){
         }
@@ -49,5 +60,9 @@ function pushImageArray(newImage){
   imageHolder.push(newImage);
 }
 
+function storeSelectedTracks(ele){
+  selectedTracksStorage.push(ele);
+  console.log(selectedTracksStorage);
+}
 $(buttonToClickActionTEMP).click(function(){
 })
