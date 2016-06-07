@@ -4,7 +4,8 @@ var boxToAppendTo = $('.actualBox')[0];
 var imagePrefab = $('.topBarImages');
 var httpRequest = new XMLHttpRequest();
 var imageHolder = [];
-var globalArrayHolder;
+var globalCoverArtArrayHolder;
+var globalArtistArrayHolder;
 window.onLoad= pageLoad();
 
 function pageLoad(){
@@ -12,12 +13,13 @@ function pageLoad(){
     if(httpRequest.readyState === 4){
       if(httpRequest.status < 400){
         var jsonNewObj=JSON.parse(httpRequest.responseText);
-          globalArrayHolder = make_JSON_Object_Array(jsonNewObj);
-          updateDOM(globalArrayHolder);
+          globalCoverArtArrayHolder = make_JSON_Object_Array(jsonNewObj,1);
+          globalArtistArrayHolder = make_JSON_Object_Array(jsonNewObj,2);
+          updatePicDom(globalCoverArtArrayHolder);
           $(pictureDivToAppend.childNodes).click(function(ele){
             for (var i = 0; i < imageHolder.length; i++) {
               if(this.id === imageHolder[i][0].id){
-                updateBoxDiv(globalArrayHolder[i]);
+                updateBoxDiv(globalArtistArrayHolder[i]);
               }
             }
           })
@@ -30,7 +32,7 @@ function pageLoad(){
   httpRequest.send();
 };
 
-function updateDOM(arr){
+function updatePicDom(arr){
   for (var i = 0; i < arr.length; i++) {
     var img_Inner = $("<img></img>", {class: "topBarImages",id:(i), src:('images/'+arr[i])});
     $(pictureDivToAppend).append(img_Inner);

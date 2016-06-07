@@ -9,12 +9,23 @@ function chooseRandom(objArr,numberToIterate){
 }
 
 //Makes Json object an array of objects by artist.
-function make_JSON_Object_Array (jsonObj){
+//Case 1 returns coverart
+//Case 2 returns artist + title
+function make_JSON_Object_Array(jsonObj,cas){
   var newArr = [];
-  for (var i = 0; i < jsonObj.results.length; i++) {
-    newArr[i] = jsonObj.results[i].cover_art;
-  }
-  return newArr;
+  switch(cas){
+    case 1:
+      for (var i = 0; i < jsonObj.results.length; i++) {
+        newArr[i] = jsonObj.results[i].cover_art;
+      }
+      return newArr;
+    case 2:
+      for (var i = 0; i < jsonObj.results.length; i++) {
+        console.log(jsonObj);
+        newArr[i] = jsonObj.results[i].artist +' - '+ jsonObj.results[i].title;
+      }
+      return newArr;
+    }
 }
 
 //Taking the array of arrays [[array1][array2]] into an array of just
