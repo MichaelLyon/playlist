@@ -10,14 +10,14 @@ function pageLoad(){
     if(httpRequest.readyState === 4){
       if(httpRequest.status < 400){
         var jsonNewObj=JSON.parse(httpRequest.responseText);
-        globalJSONHolder = chooseRandom(make_JSON_Object_Array(jsonNewObj),3);
-        globalJSONHolder = make_Array_arrayOfArtists(globalJSONHolder);
+        globalJSONHolder = chooseRandom(make_JSON_Object_Array(jsonNewObj,1),3);
         updateDOM(globalJSONHolder);
         if(jsonNewObj.Response ==="False"){
-        }
-      }
-    }
-  }
+          alert("Server Not Responding");
+        };
+      };
+    };
+  };
   httpRequest.open('GET', 'https://lit-fortress-6467.herokuapp.com/object');
   httpRequest.send();
 };
@@ -25,5 +25,5 @@ function pageLoad(){
 function updateDOM(arrayOfArtists){
   for (var i = 0; i < 3; i++) {
     pictureGet[i].src = ('images/'+arrayOfArtists[i]);
-  }
-}
+  };
+};

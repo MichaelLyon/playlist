@@ -27,13 +27,13 @@ function pageLoad(){
               if(this.id === imageHolder[i][0].id){
                 updateBoxDiv(globalArtistArrayHolder[i]);
                 storeSelectedTracks(globalArtistForPOST[i]);
-              }
-            }
-          })
+              };
+            };
+          });
           $(clearButton).click(function(){
             $(boxToAppendTo).empty('');
             selectedTracksStorage = [];
-          })
+          });
           $(submitButton).click(function(){
             $(boxToAppendTo).empty('');
             $.post("https://lit-fortress-6467.herokuapp.com/post",selectedTracksStorage,function(data,status,xhr){
@@ -41,13 +41,13 @@ function pageLoad(){
             });
             selectedTracksStorage =[];
             console.log('Submitting to Server');
-
-          })
+          });
         if(jsonNewObj.Response ==="False"){
-        }
-      }
-    }
-  }
+          alert('Server Not Responding');
+        };
+      };
+    };
+  };
   httpRequest.open('GET', 'https://lit-fortress-6467.herokuapp.com/object');
   httpRequest.send();
 };
@@ -57,19 +57,19 @@ function updatePicDom(arr){
     var img_Inner = $("<img></img>", {class: "topBarImages",id:(i), src:('images/'+arr[i])});
     $(pictureDivToAppend).append(img_Inner);
     pushImageArray(img_Inner);
-  }
-}
+  };
+};
 
 function updateBoxDiv(ele){
   var newBoxDiv = $("<div></div>", {class:'artistDiv'}).text(ele);
   $(boxToAppendTo).append(newBoxDiv);
-}
+};
 
 function pushImageArray(newImage){
   imageHolder.push(newImage);
-}
+};
 
 function storeSelectedTracks(ele){
   selectedTracksStorage.push(ele);
   console.log(selectedTracksStorage);
-}
+};

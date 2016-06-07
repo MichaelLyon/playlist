@@ -1,3 +1,7 @@
+@font-face {
+    font-family: AvenirNextLTPro ;
+    src: url('../fonts/AvenirNextLTPro-Regular.otf');
+}
 body{
   margin: 0px;
   padding: 0px;
@@ -19,6 +23,14 @@ footer{
   bottom: 0;
   left: 0;
 }
+.footerDiv{
+  font-size: 20px;
+  position: relative;
+  color:white;
+  font-family: AvenirNextLTPro ;
+  top: 20%;
+  left: 50px;
+}
 section{
 
 }
@@ -34,6 +46,7 @@ section{
 
 .trackButton{
   position: absolute;
+  font-family: AvenirNextLTPro ;
   min-height: 6vh;
   min-width: 15vw;
   left:17%;
@@ -46,10 +59,10 @@ section{
 }
 .leftBodyTitle{
   color: #2C0053;
+  font-family: AvenirNextLTPro ;
   position: relative;
   left: 40%;
   top:40%;
-  font-family: AvenirNextLTPro-Regular.otf;
 }
 
 .rightBodyDiv{
