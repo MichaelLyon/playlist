@@ -8,7 +8,9 @@ var httpRequest = new XMLHttpRequest();
 var imageHolder = [];
 var globalCoverArtArrayHolder;
 var globalArtistArrayHolder;
+var globalArtistForPOST;
 var selectedTracksStorage = [];
+
 window.onLoad= pageLoad();
 
 function pageLoad(){
@@ -18,21 +20,28 @@ function pageLoad(){
         var jsonNewObj=JSON.parse(httpRequest.responseText);
           globalCoverArtArrayHolder = make_JSON_Object_Array(jsonNewObj,1);
           globalArtistArrayHolder = make_JSON_Object_Array(jsonNewObj,2);
+          globalArtistForPOST = make_JSON_Object_Array(jsonNewObj,3);
           updatePicDom(globalCoverArtArrayHolder);
           $(pictureDivToAppend.childNodes).click(function(ele){
             for (var i = 0; i < imageHolder.length; i++) {
               if(this.id === imageHolder[i][0].id){
                 updateBoxDiv(globalArtistArrayHolder[i]);
-                storeSelectedTracks(globalCoverArtArrayHolder[i]);
+                storeSelectedTracks(globalArtistForPOST[i]);
               }
             }
           })
           $(clearButton).click(function(){
             $(boxToAppendTo).empty('');
+            selectedTracksStorage = [];
           })
           $(submitButton).click(function(){
             $(boxToAppendTo).empty('');
+            $.post("https://lit-fortress-6467.herokuapp.com/post",selectedTracksStorage,function(data,status,xhr){
+              console.log(data);
+            });
+            selectedTracksStorage =[];
             console.log('Submitting to Server');
+
           })
         if(jsonNewObj.Response ==="False"){
         }
@@ -64,5 +73,3 @@ function storeSelectedTracks(ele){
   selectedTracksStorage.push(ele);
   console.log(selectedTracksStorage);
 }
-$(buttonToClickActionTEMP).click(function(){
-})

@@ -11,6 +11,7 @@ function chooseRandom(objArr,numberToIterate){
 //Makes Json object an array of objects by artist.
 //Case 1 returns coverart
 //Case 2 returns artist + title
+//Case 3 returns just artist for POST request
 function make_JSON_Object_Array(jsonObj,cas){
   var newArr = [];
   switch(cas){
@@ -21,8 +22,12 @@ function make_JSON_Object_Array(jsonObj,cas){
       return newArr;
     case 2:
       for (var i = 0; i < jsonObj.results.length; i++) {
-        console.log(jsonObj);
         newArr[i] = jsonObj.results[i].artist +' - '+ jsonObj.results[i].title;
+      }
+      return newArr;
+    case 3:
+      for (var i = 0; i < jsonObj.results.length; i++) {
+        newArr[i] = jsonObj.results[i].artist;
       }
       return newArr;
     }
