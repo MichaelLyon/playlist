@@ -1,9 +1,9 @@
-  function randomizePics(jsonObj){
-    var newArr= [];
-    for (var i = 0; i < jsonObj.results.length; i++) {
-      newArr[i]= jsonObj.results[i].cover_art;
-    }
-    return chooseRandom(newArr);
+function randomizePics(jsonObj){
+  var newArr= [];
+  for (var i = 0; i < jsonObj.results.length; i++) {
+    newArr[i]= jsonObj.results[i].cover_art;
+  }
+  return chooseRandom(newArr);
 };
 
 function chooseRandom(arr){
@@ -16,3 +16,11 @@ function chooseRandom(arr){
   }
   return newArr1;
 }
+
+function randomizePicsTopBar(jsonObj){
+  var newArr= [];
+  for (var i = 0; i < jsonObj.results.length; i++) {
+    newArr[i]= jsonObj.results[i].cover_art;
+  }
+  return newArr;
+};

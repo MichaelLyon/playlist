@@ -12,7 +12,7 @@ function pageLoad(){
       if(httpRequest.status < 400){
         var jsonNewObj=JSON.parse(httpRequest.responseText);
           updateDOM(randomizePics(jsonNewObj));
-
+          
         if(jsonNewObj.Response ==="False"){
         }
       }
@@ -24,13 +24,8 @@ function pageLoad(){
 
 function updateDOM(arrOfArrays){
   for (var i = 0; i < arrOfArrays.length; i++) {
-    if(arrOfArrays[i] ==  "the_division_bell.jpg"){
-      imageGet[i].src = 'images/division_bell.jpg';
-      updateImage();
-    }else{
-      imageGet[i].src = 'images/'+arrOfArrays[i];
-      updateImage();
-    }
+    imageGet[i].src = 'images/'+arrOfArrays[i];
+    updateImage();
   }
 }
 
