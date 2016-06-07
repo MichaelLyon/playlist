@@ -31,12 +31,14 @@ h2{
 .picture_container{
   padding: 20px 20px 20px 20px;
   display: inline-block;
-  width: 40em;
+  width: 64em;
   overflow-x: auto;
   white-space: nowrap;
 }
 .topBarImages{
   padding: 0 30px 0 30px;
+  width: 80px;
+  height: 80px;
 }
 .inputBox_container{
   width:100%;
@@ -52,6 +54,7 @@ h2{
   height: 80%;
   background-color: #EEEEEE;
   border: 2px solid black;
+  overflow-x: auto;
 }
 .actionButtons{
   position: relative;

@@ -70,20 +70,14 @@ section{
   position: absolute;
   top:10%;
   left:68%;
-  height: 200px;
-  width: 200px;
 }
 .pictureMiddle{
   position: absolute;
   top:45%;
   left:68%;
-  height: 200px;
-  width: 200px;
 }
 .pictureBottom{
   position: absolute;
   top:80%;
   left:68%;
-  height: 200px;
-  width: 200px;
 }

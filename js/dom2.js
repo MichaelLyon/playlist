@@ -1,11 +1,7 @@
-var getImages = document.getElementsByClassName('topBarImages');
+var pictureDivToAppend = $('.picture_container')[0];
+var buttonToClickActionTEMP = $('.actionButtons')[0];
+var imagePrefab = $('.topBarImages');
 var httpRequest = new XMLHttpRequest();
-var contentBoxDiv = document.getElementsByClassName('actualBox')[0];
-var imageClick = [];
-var savedImageClick =[];
-for (var i = 0; i < 5; i++) {
-  imageClick[i]=document.getElementsByClassName('topBarImages')[i];
-}
 window.onLoad= pageLoad();
 
 function pageLoad(){
@@ -13,8 +9,7 @@ function pageLoad(){
     if(httpRequest.readyState === 4){
       if(httpRequest.status < 400){
         var jsonNewObj=JSON.parse(httpRequest.responseText);
-          updateDom(randomizePicsTopBar(jsonNewObj));
-          // clickManager(randomizePicsTopBar(jsonNewObj));
+          chooseRandom(make_JSON_Object_Array(jsonNewObj),3);
         if(jsonNewObj.Response ==="False"){
         }
       }
@@ -24,21 +19,18 @@ function pageLoad(){
   httpRequest.send();
 };
 
-function updateDom(arr){
-  for (var i = 0; i < arr.length; i++) {
-    getImages[i].src = 'images/'+arr[i];
-  }
+
+function updateDOM(){
+  var img_Inner = $("<img></img>", {class: "topBarImages"});
+  $(pictureDivToAppend).append(img_Inner);
+
 }
 
-function clickManager(itemClicked){
-  savedImageClick.push(itemClicked);
-  var newDiv = document.createElement('div');
-  newDiv.innerHTML= itemClicked;
-  contentBoxDiv.appendChild(newDiv);
-}
+$('.topBarImages').click(function(){
+  alert(this.src);
+})
 
-for (var i = 0; i < imageClick.length; i++) {
-  imageClick[i].addEventListener('click',function(){
-    clickManager();
-  })
-}
+$(buttonToClickActionTEMP).click(function(){
+  updateDOM();
+
+})

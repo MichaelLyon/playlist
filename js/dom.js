@@ -1,8 +1,7 @@
-var userClick = document.getElementsByClassName('trackButton')[0];
 var httpRequest = new XMLHttpRequest();
-var topPictureGet = document.getElementById('topPicture');
-var imageGet = document.getElementsByClassName('pics');
-var imageArr = ['ghost_in_the_machine.jpg','thriller.jpg','red.jpg','21.jpg','the_division_bell'];
+var holderArray = [];
+var globalJSONHolder = [];
+var pictureGet = document.getElementsByClassName('pics');
 
 window.onLoad= pageLoad();
 
@@ -11,8 +10,9 @@ function pageLoad(){
     if(httpRequest.readyState === 4){
       if(httpRequest.status < 400){
         var jsonNewObj=JSON.parse(httpRequest.responseText);
-          updateDOM(randomizePics(jsonNewObj));
-          
+        globalJSONHolder = chooseRandom(make_JSON_Object_Array(jsonNewObj),3);
+        globalJSONHolder = make_Array_arrayOfArtists(globalJSONHolder);
+        updateDOM(globalJSONHolder);
         if(jsonNewObj.Response ==="False"){
         }
       }
@@ -22,16 +22,8 @@ function pageLoad(){
   httpRequest.send();
 };
 
-function updateDOM(arrOfArrays){
-  for (var i = 0; i < arrOfArrays.length; i++) {
-    imageGet[i].src = 'images/'+arrOfArrays[i];
-    updateImage();
-  }
-}
-
-function updateImage(){
-  for (var i = 0; i < imageGet.length; i++) {
-    imageGet[i].style.width = '100%';
-    imageGet[i].style.height = '100%';
+function updateDOM(arrayOfArtists){
+  for (var i = 0; i < 3; i++) {
+    pictureGet[i].src = ('images/'+arrayOfArtists[i]);
   }
 }
