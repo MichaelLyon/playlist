@@ -4,12 +4,16 @@ var boxToAppendTo = $('.actualBox')[0];
 var imagePrefab = $('.topBarImages');
 var clearButton = $('.actionButtons')[0];
 var submitButton = $('.actionButtons')[1];
+var userInputGET = $('.userInput')[0];
 var httpRequest = new XMLHttpRequest();
 var imageHolder = [];
 var globalCoverArtArrayHolder;
 var globalArtistArrayHolder;
 var globalArtistForPOST;
 var selectedTracksStorage = [];
+//Spotify Stuff
+var clientID ='2f20a4a361dd4f7fb4d47e898a744ccb';
+var clientSecrect = '84226d1e6d9a4bb1a53fcf8b422c2d34';
 
 window.onLoad= pageLoad();
 
@@ -39,6 +43,11 @@ function pageLoad(){
             $.post("https://lit-fortress-6467.herokuapp.com/post",selectedTracksStorage,function(data,status,xhr){
               console.log(data);
             });
+            $.get(('https://api.spotify.com/v1/search?q=' + userInputGET.value +'&type=artist&market=US'),function(data){
+              console.log(data.artists.items);
+              make_Spot_Obj_Array(data.artists.items,1);
+            });
+
             selectedTracksStorage =[];
             console.log('Submitting to Server');
           });

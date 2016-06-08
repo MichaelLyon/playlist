@@ -83,3 +83,8 @@ p{
   left: 50px;
   color: white;
 }
+.userInput{
+  position: relative;
+  left: 10%;
+  width: 15%;
+}

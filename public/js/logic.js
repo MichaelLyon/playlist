@@ -32,7 +32,33 @@ function make_JSON_Object_Array(jsonObj,cas){
       return newArr;
     }
 }
-
+//Case One returns array of artists
+function make_Spot_Obj_Array(objArray,cas){
+  var newArr = [];
+  switch(cas){
+    case 1:
+      for (var i = 0; i < objArray.length; i++) {
+        newArr[i]= objArray[i].name;
+      }
+      return newArr;
+    case 2:
+      for (var i = 0; i < objArray.length; i++) {
+        newArr[i] = objArray[i].images[0].url;
+        console.log(newArr);
+      }
+      return newArr;
+    case 3:
+      for (var i = 0; i < objArray.length; i++) {
+        newArr[i] = objArray[i].id;
+      }
+      return newArr;
+    case 4:
+      for (var i = 0; i < objArray.length; i++) {
+        newArr[i] =objArray[i].genres[0];
+        console.log(newArr);
+      }
+  }
+}
 //Taking the array of arrays [[array1][array2]] into an array of just
 // the specified objective.
 function make_Array_arrayOfArtists(arrayOfArrays){
