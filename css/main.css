@@ -1,0 +1,96 @@
+@font-face {
+    font-family: AvenirNextLTPro ;
+    src: url('../fonts/AvenirNextLTPro-Regular.otf');
+}
+body{
+  margin: 0px;
+  padding: 0px;
+}
+header{
+  background-color: #9B9B8D;
+  height: 8vh;
+  width: 100vw;
+  border-bottom: 2px solid black;
+  position: relative;;
+}
+
+footer{
+  background-color: #9B9B8D;
+  position: relative;
+  border-top: 2px solid black;
+  height: 8vh;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.footerDiv{
+  font-size: 20px;
+  position: relative;
+  color:white;
+  font-family: AvenirNextLTPro ;
+  top: 20%;
+  left: 50px;
+}
+section{
+
+}
+.container{
+  min-height: 100%;
+}
+.leftBodyDiv{
+  width:50%;
+  height: 100vh;
+  float: left;
+  background-color: #EEEEEE;
+}
+
+.trackButton{
+  position: absolute;
+  font-family: AvenirNextLTPro ;
+  min-height: 6vh;
+  min-width: 15vw;
+  left:17%;
+  top:60%;
+  background-color: #353527;
+  border: 2px 0px black;
+  border-radius: 5px;
+  font-size: 24px;
+  color: white;
+}
+.leftBodyTitle{
+  color: #2C0053;
+  font-family: AvenirNextLTPro ;
+  position: relative;
+  left: 40%;
+  top:40%;
+}
+
+.rightBodyDiv{
+  display: inline-block;
+  width: 50%;
+  height: 100vh;
+}
+.background_img{
+  display: inline-block;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../resources/track.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.19;
+}
+.pictureTop{
+  position: absolute;
+  top:10%;
+  left:68%;
+}
+.pictureMiddle{
+  position: absolute;
+  top:45%;
+  left:68%;
+}
+.pictureBottom{
+  position: absolute;
+  top:80%;
+  left:68%;
+}
